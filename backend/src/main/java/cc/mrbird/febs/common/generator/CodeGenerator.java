@@ -23,15 +23,15 @@ import java.util.Scanner;
 public class CodeGenerator {
 
     // 数据库 URL
-    private static final String URL = "jdbc:mysql://127.0.0.1:3306/febs_shiro_jwt?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    private static final String URL = "jdbc:mysql://127.0.0.1:3306/micro_pro?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     // 数据库驱动
     private static final String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
     // 数据库用户名
     private static final String USERNAME = "root";
     // 数据库密码
-    private static final String PASSWORD = "123456";
+    private static final String PASSWORD = "Adminadmin";
     // @author 值
-    private static final String AUTHOR = "MrBird";
+    private static final String AUTHOR = "larry";
     // 包的基础路径
     private static final String BASE_PACKAGE_URL = "cc.mrbird.febs";
     // xml文件路径

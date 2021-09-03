@@ -24,7 +24,7 @@ import java.util.Set;
 /**
  * 自定义实现 ShiroRealm，包含认证和授权两大模块
  *
- * @author MrBird
+ * @author Jack
  */
 public class ShiroRealm extends AuthorizingRealm {
 
@@ -83,21 +83,25 @@ public class ShiroRealm extends AuthorizingRealm {
         } catch (Exception ignore) {
         }
         // 如果找不到，说明已经失效
-        if (StringUtils.isBlank(encryptTokenInRedis))
+        if (StringUtils.isBlank(encryptTokenInRedis)) {
             throw new AuthenticationException("token已经过期");
+        }
 
         String username = JWTUtil.getUsername(token);
 
-        if (StringUtils.isBlank(username))
+        if (StringUtils.isBlank(username)) {
             throw new AuthenticationException("token校验不通过");
+        }
 
         // 通过用户名查询用户信息
         User user = userManager.getUser(username);
 
-        if (user == null)
+        if (user == null) {
             throw new AuthenticationException("用户名或密码错误");
-        if (!JWTUtil.verify(token, username, user.getPassword()))
+        }
+        if (!JWTUtil.verify(token, username, user.getPassword())) {
             throw new AuthenticationException("token校验不通过");
+        }
         return new SimpleAuthenticationInfo(token, token, "febs_shiro_realm");
     }
 }

@@ -3,7 +3,7 @@ package cc.mrbird.febs.common.properties;
 import lombok.Data;
 
 /**
- * @author MrBird
+ * @author Jack
  */
 @Data
 public class SwaggerProperties {

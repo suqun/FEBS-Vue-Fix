@@ -52,10 +52,11 @@ public class CacheServiceImpl implements CacheService {
     @Override
     public User getUser(String username) throws Exception {
         String userString = this.redisService.get(FebsConstant.USER_CACHE_PREFIX + username);
-        if (StringUtils.isBlank(userString))
+        if (StringUtils.isBlank(userString)) {
             throw new Exception();
-        else
+        } else {
             return this.mapper.readValue(userString, User.class);
+        }
     }
 
     @Override
