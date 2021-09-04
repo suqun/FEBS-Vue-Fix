@@ -8,6 +8,8 @@ import IndexView from '../views/index/Index.vue'
 import HomePageView from '@/views/HomePage'
 import db from 'utils/localstorage'
 import request from 'utils/request'
+import Home from '../components/Home'
+import ElementPage from "../components/ElementPage";
 
 // 全局Router异常处理
 const originalPush = Router.prototype.push
@@ -29,6 +31,15 @@ let constRouter = [
     name: '首页',
     // redirect: '/home'
     component: IndexView
+  },
+  {
+    path: '/periodicity',
+    name: '元素周期',
+    component: Home
+  },
+  {
+    path: '/element/:id', // Individualized element pages
+    component: ElementPage
   }
 ]
 
@@ -36,7 +47,7 @@ let router = new Router({
   routes: constRouter
 })
 
-const whiteList = ['/login', '/index']
+const whiteList = ['/login', '/index','/home']
 
 let asyncRouter
 
