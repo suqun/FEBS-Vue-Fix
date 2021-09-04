@@ -1,0 +1,63 @@
+//页面头
+.page-header {
+  margin: 20px 0;
+  padding: 0 10px;
+  color: @title-color;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 20px;
+  border-left: 4px solid @base-light-color;
+}
+
+//搜索条
+.filter {
+  display: flex;
+  justify-content: flex-end;
+
+  .filter-item {
+    width: 180px;
+    margin-left: 8px;
+  }
+
+  .filter-item-large {
+    flex: auto;
+  }
+
+  /deep/ .v-btn {
+    min-height: 34px;
+    margin-left: 10px;
+  }
+}
+
+//边框
+.border-all-1{
+  border: @container-border;
+}
+
+//数据展示块
+.data-box{
+  width: 100%;
+  padding: 12px;
+  color: #fff;
+  text-align: center;
+  background: @bg-red;
+  p{
+    margin: 0;
+  }
+  .num{
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .txt{
+    font-size: 12px;
+  }
+  &.b-blue{
+    background: @blue;
+  }
+  &.b-warn{
+    background: @bg-spec;
+  }
+  &.b-green{
+    background: @green;
+  }
+}

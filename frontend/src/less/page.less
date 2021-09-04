@@ -1,0 +1,471 @@
+@import "base";
+
+html, body {
+  font-family: "Roboto", sans-serif !important; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+  margin: 0 !important;
+  padding: 0;
+  background-color: @bg-grey !important;
+  overflow: hidden;
+  font-size: 14px;
+  //filter: grayscale(100%); //网站灰色调
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+
+[hidden],
+template {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+a {
+  text-decoration: none !important;
+  color: @content-grey;
+  background-color: transparent;
+}
+
+/**
+ * Improve readability when hovered and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+
+dfn {
+  font-style: italic;
+}
+
+/*
+* Remove the gap between audio, canvas, iframes,
+* images, videos and the bottom of their containers:
+* https://github.com/h5bp/html5-boilerplate/issues/440
+*/
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+* Remove default fieldset styles.
+*/
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+* Allow only vertical resizing of textareas.
+*/
+
+textarea {
+  resize: vertical;
+}
+
+/*
+* Hide only visually, but have it available for screen readers:
+* http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+*/
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+
+  &.focusable:focus,
+  &.focusable:active {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+  }
+}
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+  color: @split-grey;
+  font-weight: normal;
+}
+
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  color: @split-grey;
+  font-weight: normal;
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: @split-grey;
+  font-weight: normal;
+}
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+
+
+#nprogress {
+  .bar {
+    background: @base-light-color !important;
+  }
+
+  .peg {
+    box-shadow: 0 0 10px @base-light-color, 0 0 5px @base-light-color !important;
+  }
+}
+
+.multi-line {
+  height: 40px;
+  line-height: 20px;
+  overflow: hidden;
+  white-space: normal !important;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.hand {
+  cursor: pointer;
+}
+
+.bg-grey {
+  background-color: @bg-grey !important;
+}
+
+.bg-white {
+  background-color: white !important;
+}
+
+// Classes
+.pull-left {
+  float: left !important;
+}
+
+.pull-right {
+  float: right !important;
+}
+
+.clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+.hide {
+  display: none !important;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.rotate180 {
+  transform: rotate(180deg);
+}
+
+.rotate225 {
+  transform: rotate(225deg);
+}
+
+.base-color {
+  color: @base-color;
+}
+
+.hight-light {
+  color: @base-light-color;
+}
+
+.stub-light {
+  color: @title-color;
+}
+
+.bg-stub {
+  background-color: @title-color !important;
+}
+
+.bg-stub-light {
+  background-color: @sub-grey !important;
+}
+
+.v-pagination {
+  width: auto !important;
+}
+
+.img-add {
+  float: left;
+  width: 60px;
+  height: 60px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  background-color: #eee;
+  position: relative;
+  z-index: 10;
+
+  &:hover {
+    .single-tips {
+      display: block;
+      z-index: 11;
+    }
+  }
+
+  .single-tips {
+    float: right;
+    position: relative;
+    height: 0;
+    width: 18px !important;
+    text-align: right;
+    line-height: 10px;
+    display: none;
+
+    .single-tips-div {
+      width: 18px;
+      height: 18px;
+      float: right;
+      background: rgba(80, 90, 110, 0.65) none repeat scroll !important;
+      filter: Alpha(opacity=65);
+      position: static;
+      cursor: pointer;
+      background-color: @bg-spec !important;
+
+      > img {
+        max-height: 18px;
+        max-width: 100%;
+      }
+    }
+  }
+
+  > img {
+    height: auto;
+    left: 50%;
+    max-height: 100%;
+    max-width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+  }
+}
+
+.two-line-wrap {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  width: 100%;
+}
+
+.upload-file-input {
+  display: inline-block !important;
+  width: 88px;
+  height: 28px;
+  opacity: 0;
+  position: absolute;
+  cursor: pointer;
+  top: 6px;
+  z-index: 99;
+}
+
+
+.dialog-height-set {
+  min-height: 300px;
+}
+
+.form-label {
+  font-size: 16px;
+  line-height: 1;
+  min-height: 8px;
+  color: rgba(0, 0, 0, 0.54);
+  margin-top: 16px;
+  padding-top: 4px;
+}
+
+.dialog-panel {
+  position: relative;
+  min-height: 450px;
+  background: white;
+}
+
+.flex-height {
+  overflow-y: auto;
+  height: 100%
+}
+
+.json-formatter-string {
+  word-break: normal;
+  width: auto;
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+  overflow: hidden;
+}
+
+.new-table-header {
+  color: rgba(0, 0, 0, 0.54);
+  text-align: center;
+  font-size: 12px;
+}
+
+.text-xs-center {
+  text-align: center;
+}
+
+.select-active {
+  .v-input__control {
+    .v-input__slot {
+      border: 2px solid #ff8000 !important;
+    }
+  }
+}
+
+.xinhao {
+  color: @error-color
+}
+
+.v-btn:not(.v-btn--outlined).primary,
+.v-btn:not(.v-btn--outlined).secondary,
+.v-btn:not(.v-btn--outlined).accent,
+.v-btn:not(.v-btn--outlined).success,
+.v-btn:not(.v-btn--outlined).error,
+.v-btn:not(.v-btn--outlined).warning,
+.v-btn:not(.v-btn--outlined).info,
+.v-btn:not(.v-btn--outlined).task {
+  color: #fff
+}
+
+.lang-btn {
+  .v-btn__content {
+    font-size: 10px !important;
+    font-weight: normal;
+  }
+}
+
+.tooltip {
+  z-index: 250;
+}
+
+.fill-width {
+  width: 100%;
+}
+
+.amap-geolocation-con {
+  z-index: 199 !important;
+}
+
+.mx-input {
+  border-radius: 0;
+}
+
+.old-grid {
+  /deep/ .row {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}

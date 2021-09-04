@@ -1,0 +1,287 @@
+@import "base";
+
+.order-box {
+    width: 100%;
+    box-sizing: border-box;
+    border: @container-border;
+
+    .order-title {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 10px;
+        font-size: 12px;
+        line-height: 24px;
+        background: rgba(227, 228, 228, 1);
+        ;
+        border-bottom: @container-border;
+
+        .order-th {
+            flex: auto;
+            color: @title-color;
+            text-align: center;
+
+            &:first-of-type {
+                padding-left: 30px;
+                text-align: left;
+            }
+        }
+
+        .num .info-item,
+        .link .handle-item {
+            display: inline-block;
+            padding-right: 20px;
+
+            span {
+                color: #000000;
+            }
+        }
+
+        .num .info-item {
+            .label {
+                color: #626669;
+
+            }
+
+            .val {
+                color: #000000;
+            }
+        }
+    }
+
+    .order-info {
+        display: flex;
+        color: @title-color;
+        font-size: 12px;
+        line-height: 20px;
+
+
+        .good-info {
+            flex: 0 0 60%;
+
+            .g-info-box {
+                display: flex;
+
+                &:last-child {
+                    border: 0 none
+                }
+
+                .good-box,
+                .g-price,
+                .g-count {
+                    box-sizing: border-box;
+                    padding: 8px;
+                    text-align: center;
+                }
+
+                .good-box {
+                    display: flex;
+                    flex: 0 0 40.35%;
+
+                    .img-box {
+                        flex: 0 0 60px;
+                        height: 60px;
+                        text-align: center;
+
+                        img {
+                            max-width: 100%;
+                            max-height: 100%;
+                        }
+                    }
+
+                    .good-detail {
+                        flex: 1 1 auto;
+                        padding-left: 10px;
+                        text-align: left;
+
+                        p {
+                            margin: 0;
+                            color: @sub-grey;
+
+                            &.g-name {
+                                margin-bottom: 8px;
+                                color: #000000;
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                }
+
+                .g-price {
+                    flex: 0 0 20%;
+                }
+
+                .g-count {
+                    flex: 0 0 23.33%;
+                }
+
+                .g-after {
+                    flex: 0 0 16%;
+                    border-right: @container-border;
+                }
+
+                .g-price,
+                .g-count,
+                .g-after {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
+
+        .cus-info {
+            display: flex;
+            flex: 0 0 40%;
+
+            box-sizing: border-box;
+            height: 88px;
+
+            p {
+                margin: 0;
+            }
+
+            >div {
+                box-sizing: border-box;
+                padding: 10px 0;
+                text-align: center;
+            }
+
+            .cus-name {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                flex: 0 0 30%;
+            }
+
+            .order-sts,
+            .cus-pay {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                flex: 0 0 35%;
+            }
+        }
+    }
+}
+
+.after-order-box {
+    width: 100%;
+    box-sizing: border-box;
+    border: @container-border;
+
+    .order-title {
+        display: flex;
+        justify-content: space-between;
+        padding: 4px 10px 3px;
+        font-size: 12px;
+        line-height: 24px;
+        background: rgba(227, 228, 228, 1);
+        border-bottom: @container-border;
+
+        .order-th {
+            flex: auto;
+            color: @title-color;
+            text-align: center;
+
+            &:first-of-type {
+                padding-left: 30px;
+                text-align: left;
+            }
+        }
+
+        .num .info-item,
+        .link .handle-item {
+            display: inline-block;
+            padding-right: 30px;
+        }
+
+        .num .info-item {
+            .label {
+                color: @sub-grey;
+            }
+
+            .iconText {
+                color: @title-color;
+            }
+
+            .val {
+                color: @title-color;
+
+            }
+        }
+    }
+
+    .order-info {
+        display: flex;
+        align-items: center;
+        color: @title-color;
+        font-size: 12px;
+        line-height: 20px;
+        padding: 8px 0;
+
+        .good-info {
+            flex: 0 0 22%;
+
+            .good-box {
+                display: flex;
+                flex: 0 0 56.67%;
+
+                .img-box {
+                    flex: 0 0 60px;
+                    height: 60px;
+                    text-align: center;
+
+                    img {
+                        max-width: 100%;
+                        max-height: 100%;
+                    }
+                }
+
+                .good-detail {
+                    flex: 1 1 auto;
+                    padding-left: 10px;
+                    text-align: left;
+
+                    p {
+                        margin: 0;
+                        color: @sub-grey;
+
+                        &.g-name {
+                            margin-bottom: 8px;
+                            color: #000000;
+                            font-weight: 500;
+                        }
+                    }
+                }
+            }
+        }
+
+        .good-sendStatus {
+            flex: 0 0 9%;
+            text-align: center;
+        }
+
+        .good-price {
+            flex: 0 0 10%;
+            text-align: center;
+        }
+
+        .good-time {
+            flex: 0 0 12%;
+            text-align: center;
+        }
+
+        .good-state {
+            flex: 0 0 11%;
+            text-align: center;
+        }
+
+        .link {
+            width: 100%;
+            text-align: center;
+        }
+    }
+}

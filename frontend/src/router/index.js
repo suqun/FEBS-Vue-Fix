@@ -4,14 +4,17 @@ import MenuView from '@/views/common/MenuView'
 import PageView from '@/views/common/PageView'
 import LoginView from '@/views/login/Common'
 import EmptyPageView from '@/views/common/EmptyPageView'
+import IndexView from '../views/index/Index.vue'
 import HomePageView from '@/views/HomePage'
 import db from 'utils/localstorage'
 import request from 'utils/request'
 
 // 全局Router异常处理
 const originalPush = Router.prototype.push
-Router.prototype.push = function push (location) {
-  return originalPush.call(this, location).catch(err => { if (typeof err !== 'undefined')console.log(err) })
+Router.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => {
+    if (typeof err !== 'undefined') console.log(err)
+  })
 }
 Vue.use(Router)
 
@@ -24,7 +27,8 @@ let constRouter = [
   {
     path: '/index',
     name: '首页',
-    redirect: '/home'
+    // redirect: '/home'
+    component: IndexView
   }
 ]
 
@@ -32,7 +36,7 @@ let router = new Router({
   routes: constRouter
 })
 
-const whiteList = ['/login']
+const whiteList = ['/login', '/index']
 
 let asyncRouter
 
@@ -40,45 +44,48 @@ let asyncRouter
 router.beforeEach((to, from, next) => {
   if (whiteList.indexOf(to.path) !== -1) {
     next()
-  }
-  let token = db.get('USER_TOKEN')
-  let user = db.get('USER')
-  let userRouter = get('USER_ROUTER')
-  if (token.length && user) {
-    if (!asyncRouter) {
-      if (!userRouter) {
-        request.get(`menu/${user.username}`).then((res) => {
-          asyncRouter = res.data
-          save('USER_ROUTER', asyncRouter)
+  } else {
+    let token = db.get('USER_TOKEN')
+    let user = db.get('USER')
+    let userRouter = get('USER_ROUTER')
+    if (token.length && user) {
+      if (!asyncRouter) {
+        if (!userRouter) {
+          request.get(`menu/${user.username}`).then((res) => {
+            asyncRouter = res.data
+            save('USER_ROUTER', asyncRouter)
+            go(to, next)
+          }).catch(err => {
+            console.error(err)
+          })
+        } else {
+          asyncRouter = userRouter
           go(to, next)
-        }).catch(err => { console.error(err) })
+        }
       } else {
-        asyncRouter = userRouter
-        go(to, next)
+        next()
       }
     } else {
-      next()
+      next('/login')
     }
-  } else {
-    next('/login')
   }
 })
 
-function go (to, next) {
+function go(to, next) {
   asyncRouter = filterAsyncRouter(asyncRouter)
   router.addRoutes(asyncRouter)
   next({...to, replace: true})
 }
 
-function save (name, data) {
+function save(name, data) {
   localStorage.setItem(name, JSON.stringify(data))
 }
 
-function get (name) {
+function get(name) {
   return JSON.parse(localStorage.getItem(name))
 }
 
-function filterAsyncRouter (routes) {
+function filterAsyncRouter(routes) {
   return routes.filter((route) => {
     let component = route.component
     if (component) {
@@ -95,6 +102,9 @@ function filterAsyncRouter (routes) {
         case 'HomePageView':
           route.component = HomePageView
           break
+        case 'IndexView':
+          route.component = IndexView
+          break
         default:
           route.component = view(component)
       }
@@ -106,7 +116,7 @@ function filterAsyncRouter (routes) {
   })
 }
 
-function view (path) {
+function view(path) {
   return function (resolve) {
     import(`@/views/${path}.vue`).then(mod => {
       resolve(mod)

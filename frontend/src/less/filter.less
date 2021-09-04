@@ -1,0 +1,43 @@
+@import 'base';
+
+.chart-main {
+  background-color: @bg-grey;
+  border: 1px solid @border-dark-grey;
+
+  .col {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    height: 62px;
+
+  }
+}
+
+.label {
+  flex: 0 0 65px;
+  text-align: right;
+}
+
+.label-teshu {
+  flex: 0 0 30px;
+}
+
+.chart-box {
+  padding: 20px;
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:last-child {
+    padding-right: 0;
+  }
+
+  > div {
+    padding: 20px;
+    border: 1px solid @border-dark-grey;
+  }
+}
+
+.shop-blue {
+  color: @blue;
+}
