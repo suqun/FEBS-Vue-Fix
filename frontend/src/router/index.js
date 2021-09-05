@@ -47,7 +47,7 @@ let router = new Router({
   routes: constRouter
 })
 
-const whiteList = ['/login', '/index','/home']
+const whiteList = ['/login', '/index','/periodicity']
 
 let asyncRouter
 
